@@ -1,4 +1,4 @@
-# Ya.Blogo - The Eatable Blog
+# Ya.Blogo - The Eatable Blog*
 
 ####For first launch:
 
@@ -10,3 +10,5 @@
 ```
 
 Open browser at 0.0.0.0:8080
+<hr>
+<sup>* with smell of iPhone</sup>
