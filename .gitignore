@@ -1,6 +1,4 @@
-# IDEA
+.DS_store
 .idea
 *.iml
-
-#Maven
 target

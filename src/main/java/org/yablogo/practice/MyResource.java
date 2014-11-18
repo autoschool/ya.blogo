@@ -5,10 +5,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-/**
- * Root resource (exposed at "myresource" path)
- */
-@Path("myresource")
+@Path("/")
 public class MyResource {
 
     /**
@@ -18,8 +15,9 @@ public class MyResource {
      * @return String that will be returned as a text/plain response.
      */
     @GET
-    @Produces(MediaType.TEXT_PLAIN)
+    @Path("/")
+    @Produces(MediaType.TEXT_HTML)
     public String getIt() {
-        return "Got it!";
+        return "<h2>Please! Eat this yablogo!</h2>";
     }
 }
