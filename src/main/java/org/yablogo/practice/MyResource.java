@@ -15,7 +15,6 @@ public class MyResource {
      * @return String that will be returned as a text/plain response.
      */
     @GET
-    @Path("/")
     @Produces(MediaType.TEXT_HTML)
     public String getIt() {
         return "<h2>Please! Eat this yablogo!</h2>";
