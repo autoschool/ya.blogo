@@ -9,6 +9,6 @@
   ...
 ```
 
-Open browser at 0.0.0.0:8080
+Open browser: at 0.0.0.0:3000
 <hr>
 <sup>* with smell of iPhone</sup>
