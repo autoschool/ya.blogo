@@ -1,11 +1,11 @@
-# Ya.Blogo - The Eatable Blog*
-
+## Ya.Blogo - The Eatable Blog*
+<hr>
 ####For first launch:
 
 ```
-  $ git clone git@github.com:autoschool/ya.blogo.gi yablogo  `
-  $ cd yablogo  `
-  $ mvn jetty:run  `  
+  $ git clone git@github.com:autoschool/ya.blogo.git yablogo
+  $ cd yablogo
+  $ mvn jetty:run
   ...
 ```
 
