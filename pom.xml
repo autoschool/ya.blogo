@@ -53,6 +53,12 @@
             <version>4.11</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>com.github.detro</groupId>
+            <artifactId>phantomjsdriver</artifactId>
+            <version>1.2.0</version>
+            <scope>test</scope>
+        </dependency>
 
         <dependency>
             <groupId>org.javalite</groupId>
@@ -122,6 +128,12 @@
                     </webApp>
                     <stopPort>9990</stopPort>
                     <stopKey>tms-local</stopKey>
+                    <systemProperties>
+                        <systemProperty>
+                            <name>org.eclipse.jetty.annotations.maxWait</name>
+                            <value>120</value>
+                        </systemProperty>
+                    </systemProperties>
                     <jvmArgs>
                         -Xmx1024m
                         -XX:MaxPermSize=512m
