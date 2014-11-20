@@ -1,17 +1,21 @@
 package org.yablogo.practice;
 
-//import javax.ws.rs.client.Client;
-//import javax.ws.rs.client.ClientBuilder;
-//import javax.ws.rs.client.WebTarget;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-//import static org.junit.Assert.assertEquals;
+
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.WebTarget;
+import static org.junit.Assert.assertEquals;
+
 
 public class MyResourceTest {
+
+
     @Before
-    public void setUp() throws Exception {
+    public void openHomePage() {
+
     }
 
     @After
@@ -23,5 +27,6 @@ public class MyResourceTest {
      */
     @Test
     public void testGetIt() {
+
     }
 }
