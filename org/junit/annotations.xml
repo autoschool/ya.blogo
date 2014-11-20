@@ -1,0 +1,5 @@
+<root>
+    <item name='org.junit.Assert'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+</root>
