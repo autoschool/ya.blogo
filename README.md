@@ -1,4 +1,6 @@
 ### Ya.Blogo - The Eatable Blog*
+
+olololo
 <hr>
 ####For first launch:
 
@@ -14,3 +16,5 @@ Open browser at: `0.0.0.0:3000`
 <sup>* with smell of iPhone</sup>
 
 ### I wrote this for test
+
+<br>some changes
