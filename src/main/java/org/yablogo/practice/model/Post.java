@@ -33,5 +33,12 @@ public class Post extends Model {
         return getTimestamp("created_at");
     }
 
+    public void addComment(Comment comment) {
+        add(comment);
+    }
+
+    public List<Comment> getComments() {
+        return getAll(Comment.class);
+    }
 
 }

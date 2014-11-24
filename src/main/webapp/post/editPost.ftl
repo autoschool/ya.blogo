@@ -6,11 +6,11 @@
             <div class="page-header">
                 <div class="form-group">
                     <input type="text" class="form-control" id="changeTitle" name="changeTitle"
-                           placeholder="Post Title">
+                           placeholder="Post Title" value="${model.title}">
                 </div>
             </div>
             <div class="form-group">
-                <textarea class="form-control" rows="10" name="changeBody"></textarea>
+                <textarea class="form-control" rows="10" name="changeBody">${model.body}</textarea>
 
             </div>
             <div class="row">
