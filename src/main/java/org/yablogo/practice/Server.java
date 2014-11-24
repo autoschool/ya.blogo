@@ -11,7 +11,6 @@ import javax.ws.rs.core.FeatureContext;
 
 /**
  * Server class.
- *
  */
 public class Server extends ResourceConfig {
 

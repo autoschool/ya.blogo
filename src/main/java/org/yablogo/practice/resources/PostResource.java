@@ -1,7 +1,9 @@
 package org.yablogo.practice.resources;
 
+
 import org.glassfish.jersey.server.mvc.ErrorTemplate;
 import org.glassfish.jersey.server.mvc.Template;
+import org.yablogo.practice.model.Comment;
 import org.yablogo.practice.model.Post;
 
 import javax.ws.rs.*;
@@ -55,9 +57,7 @@ public class PostResource {
     @Path("/edit/{id}")
     @Template(name = "/post/editPost.ftl")
     public Post editPost(@PathParam("id") int id) {
-        Post post = new Post();
-        post.set("id", id);
-        return post;
+        return Post.findById(id);
     }
 
     @POST
@@ -68,7 +68,6 @@ public class PostResource {
                            @FormParam("changeBody") String body, @PathParam("id") int id) {
         Post post = Post.findById(id);
         if (post != null) {
-            post.set("id", id);
             post.setBody(body);
             post.setTitle(title);
             post.saveIt();
@@ -82,10 +81,32 @@ public class PostResource {
     @Template(name = "/post/showPosts.ftl")
     public List<Post> deletePost(@PathParam("id") int id) {
         Post post = Post.findById(id);
+
         if (post != null) {
+            List<Comment> comments = post.getComments();
+            for (Comment comment : comments) {
+                comment.delete();
+            }
             post.delete();
         }
         return Post.findAll();
+    }
+
+    @POST
+    @Path("/{id}/comment")
+    @Template(name = "/post/showPost.ftl")
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    public Post addComment(@PathParam("id") int postId, @FormParam("message") String message) {
+        Comment comment = new Comment();
+        Post post = Post.findById(postId);
+        comment.setMessage(message);
+        comment.setPostId(postId);
+        comment.saveIt();
+        if (post != null) {
+            post.addComment(comment);
+        }
+
+        return post;
     }
 
 
