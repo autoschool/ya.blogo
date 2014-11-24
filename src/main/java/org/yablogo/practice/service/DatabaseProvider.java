@@ -13,6 +13,10 @@ import java.io.IOException;
 import static java.lang.String.format;
 import static java.nio.file.Files.createTempDirectory;
 
+/**
+ * eroshenkoam
+ * 15/11/14
+ */
 @Provider
 public class DatabaseProvider implements ContainerRequestFilter {
     private static final String DBUSER = "sa";
