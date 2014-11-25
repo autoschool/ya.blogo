@@ -40,5 +40,4 @@ public class Post extends Model {
     public List<Comment> getComments() {
         return getAll(Comment.class);
     }
-
 }

@@ -30,7 +30,18 @@
 <br>
 <div class="content">
     <div class="container">
-        <#nested />
+        <div class="row">
+            <div class="col-md-3">
+                <#if model.isUserLoggedIn()>
+                    <#include "../partials/user_sidebar.ftl">
+                <#else>
+                    <#include "../partials/login_sidebar.ftl">
+                </#if>
+            </div>
+            <div class="col-md-9">
+                <#nested />
+            </div>
+        </div>
     </div>
 </div>
 <footer>
