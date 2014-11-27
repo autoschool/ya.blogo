@@ -1,6 +1,6 @@
-<#import "layouts/main.ftl" as layout />
-<@layout.layout title="Ya.Blogo: error">
+<#--<#import "layouts/main.ftl" as layout />-->
+<#--<@layout.layout title="Ya.Blogo: error">-->
 <div class="row">
-    ${"Error message"}
+    ${model.message!"Unknown error"}
 </div>
-</@layout.layout>
+<#--</@layout.layout>-->

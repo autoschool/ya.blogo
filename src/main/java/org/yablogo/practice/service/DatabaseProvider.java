@@ -25,6 +25,7 @@ public class DatabaseProvider implements ContainerRequestFilter {
 
     static {
         try {
+
             dbUrl = format("jdbc:h2:file:%s/%s,user=%s", getDbPath(), getDbName(), DBUSER);
             logger.info(format("Starting embedded database with url '%s' ...", dbUrl));
             openConnection();

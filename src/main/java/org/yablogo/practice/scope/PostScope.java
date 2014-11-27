@@ -1,9 +1,6 @@
 package org.yablogo.practice.scope;
 
-import org.yablogo.practice.model.Comment;
-
 import javax.ws.rs.CookieParam;
-import java.util.List;
 
 /**
  * Created by sukharev on 25.11.14.

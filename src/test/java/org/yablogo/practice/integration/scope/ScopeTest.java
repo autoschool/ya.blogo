@@ -1,4 +1,4 @@
-package org.yablogo.practice.scopes;
+package org.yablogo.practice.integration.scope;
 
 import org.junit.After;
 import org.junit.Before;
@@ -13,11 +13,6 @@ public class ScopeTest {
 
     @Before
     public void setUp(){
-
-    }
-
-    @Test
-    public void checkingUserAvailability(){
 
     }
 
