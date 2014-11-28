@@ -5,7 +5,7 @@
 
     <groupId>org.yablogo.practice</groupId>
     <artifactId>yablogo</artifactId>
-    <packaging>jar</packaging>
+    <packaging>war</packaging>
     <version>1.0-SNAPSHOT</version>
     <name>yablogo</name>
 
