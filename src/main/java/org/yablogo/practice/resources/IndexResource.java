@@ -28,6 +28,7 @@ public class IndexResource {
     @Path("/")
     @Template(name = "/index.ftl")
     public IndexScope showIndex(@BeanParam IndexScope scope) {
+        System.err.print("here");
         return scope;
     }
 

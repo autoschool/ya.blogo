@@ -31,12 +31,10 @@ public class Scope {
     }
 
     public boolean isOngoingSession() {
-//        return false;
         return (session != null);
     }
 
     public boolean isUserLoggedIn(){
-//        return false;
         return (user != null);
     }
 }

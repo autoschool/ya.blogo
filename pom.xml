@@ -5,7 +5,7 @@
 
     <groupId>org.yablogo.practice</groupId>
     <artifactId>yablogo</artifactId>
-    <packaging>jar</packaging>
+    <packaging>war</packaging>
     <version>1.0-SNAPSHOT</version>
     <name>yablogo</name>
 
@@ -17,7 +17,8 @@
         <sl4j.version>1.7.7</sl4j.version>
         <jetty.port>3000</jetty.port>
         <jetty.host>0.0.0.0</jetty.host>
-        <environment>test</environment>
+        <jetty.port.test>3001</jetty.port.test>
+        <jetty.host.test>127.0.0.1</jetty.host.test>
     </properties>
 
     <dependencyManagement>
@@ -61,12 +62,22 @@
             <scope>test</scope>
         </dependency>
         <dependency>
+            <groupId>com.jayway.restassured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <version>2.4.0</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
             <groupId>com.github.detro</groupId>
             <artifactId>phantomjsdriver</artifactId>
             <version>1.2.0</version>
             <scope>test</scope>
         </dependency>
-
+        <dependency>
+            <groupId>org.glassfish.jersey.test-framework.providers</groupId>
+            <artifactId>jersey-test-framework-provider-jetty</artifactId>
+            <version>2.13</version>
+        </dependency>
         <dependency>
             <groupId>org.javalite</groupId>
             <artifactId>activejdbc</artifactId>
@@ -151,7 +162,7 @@
                         <port>${jetty.port}</port>
                         <host>${jetty.host}</host>
                     </httpConnector>
-                    <scanIntervalSeconds>3</scanIntervalSeconds>
+                    <scanIntervalSeconds>1</scanIntervalSeconds>
                     <webApp>
                         <contextPath>/</contextPath>
                     </webApp>
