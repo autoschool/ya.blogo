@@ -132,12 +132,18 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.11</version>
+                <configuration>
+                    <groups>org.yablogo.practice.unit.UnitTests</groups>
+                    <excludedGroups>org.yablogo.practice.integration.IntegrationTests</excludedGroups>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-failsafe-plugin</artifactId>
                 <version>2.10</version>
                 <configuration>
-                    <systemPropertyVariables>
-                        <db.path>${project.build.directory}/db</db.path>
-                        <buildDirectory>${project.build.directory}</buildDirectory>
-                    </systemPropertyVariables>
+                    <groups>org.yablogo.practice.integration.IntegrationTests</groups>
                 </configuration>
             </plugin>
             <plugin>
