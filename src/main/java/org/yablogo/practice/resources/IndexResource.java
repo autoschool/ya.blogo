@@ -25,31 +25,9 @@ import java.io.IOException;
 @Produces(MediaType.TEXT_HTML)
 public class IndexResource {
     @GET
-    @Path("/")
+    @Path("/{username: .*}")
     @Template(name = "/index.ftl")
-    public IndexScope showIndex(@BeanParam IndexScope scope) {
-        System.err.print("here");
-        return scope;
-    }
-
-    @GET
-    @Path("/notfound")
-    @Template(name= "/notfound.ftl")
-    public Scope showIndex(@BeanParam Scope scope) {
-        return scope;
-    }
-
-    @POST
-    @Path("/signin")
-    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    public void signIn(@Context HttpServletResponse resp, @FormParam("login") String login, @FormParam("password") String password) throws IOException {
-        User loginUser = User.findFirst("(login = ? or email = ?) and password = ?",login,login,password);
-        if (loginUser == null) {
-            resp.sendRedirect("/notfound");
-        }
-        else {
-            Session s = Session.create();
-            resp.sendRedirect("/");
-        }
+    public String showIndex(@PathParam("username") String path) {
+        return path;
     }
 }

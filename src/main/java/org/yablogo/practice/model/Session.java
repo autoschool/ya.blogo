@@ -17,8 +17,6 @@ public class Session extends Model {
         return s;
     }
 
-
-
     public static User getUserBySessionId(String sessionId) {
         Session s = Session.findFirst("hash = "+sessionId);
         return User.findById(s.getUserId());

@@ -10,7 +10,7 @@ CREATE TABLE users (
     created_at TIMESTAMP
 );
 
-CREATE TABLE session (
+CREATE TABLE sessions (
     id INT DEFAULT NULL AUTO_INCREMENT PRIMARY KEY,
     hash VARCHAR(1000) NOT NULL,
     user_id INT NOT NULL,

@@ -1,4 +1,4 @@
-package org.yablogo.practice.integration.model;
+package org.yablogo.practice.unit.model;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
@@ -8,17 +8,14 @@ import org.junit.BeforeClass;
 import org.junit.AfterClass;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
-import org.yablogo.practice.integration.IntegrationTests;
 import org.yablogo.practice.model.User;
 import org.yablogo.practice.service.DatabaseProvider;
-
-import java.util.Date;
 
 
 /**
  * Created by sukharev on 27.11.14.
  */
-@Category(IntegrationTests.class)
+
 public class UserModelTest {
     private static final String WRONGLOGIN = "wronglogin";
     private static final String TESTLOGIN = "testuser";
