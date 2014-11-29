@@ -15,4 +15,4 @@ Open browser at: `0.0.0.0:3000`
 <hr>
 test it!
 
-![alt tag](https://pp.vk.me/c624125/v624125141/cb15/suh5N4C0mI0.jpg)
+![alt tag](https://pp.vk.me/c624125/v624125141/cb1c/qi8jqk64EIg.jpg)
