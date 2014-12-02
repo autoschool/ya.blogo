@@ -1,4 +1,8 @@
-CREATE TABLE user (
+DROP TABLE IF EXISTS user;
+DROP TABLE IF EXISTS users;
+
+
+CREATE TABLE users (
     id INT DEFAULT NULL AUTO_INCREMENT PRIMARY KEY,
     login VARCHAR(255) NOT NULL,
     password VARCHAR(255) NOT NULL,
@@ -6,9 +10,9 @@ CREATE TABLE user (
     created_at TIMESTAMP
 );
 
-CREATE TABLE session (
+CREATE TABLE sessions (
     id INT DEFAULT NULL AUTO_INCREMENT PRIMARY KEY,
     hash VARCHAR(1000) NOT NULL,
     user_id INT NOT NULL,
-    FOREIGN KEY (user_id) REFERENCES user(id)
+    FOREIGN KEY (user_id) REFERENCES users(id)
 );

@@ -6,12 +6,15 @@ import org.javalite.activejdbc.Model;
  * Created by sukharev on 25.11.14.
  */
 public class Session extends Model {
-    public Session() {
-
-    }
+    public Session() {}
 
     public int getUserId(){
         return this.getInteger("user_id");
+    }
+
+    public static Session getSessionForUser(User u) {
+        Session s = new Session();
+        return s;
     }
 
     public static User getUserBySessionId(String sessionId) {

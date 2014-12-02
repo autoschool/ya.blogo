@@ -11,12 +11,15 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <maven.compiler.source>1.7</maven.compiler.source>
         <maven.compiler.target>1.7</maven.compiler.target>
         <jersey.version>2.13</jersey.version>
         <sl4j.version>1.7.7</sl4j.version>
         <jetty.port>3000</jetty.port>
         <jetty.host>0.0.0.0</jetty.host>
+        <jetty.port.test>3001</jetty.port.test>
+        <jetty.host.test>127.0.0.1</jetty.host.test>
     </properties>
 
     <dependencyManagement>
@@ -48,9 +51,31 @@
              <version>${jersey.version}</version>
         </dependency>
         <dependency>
+            <groupId>net.anthavio</groupId>
+            <artifactId>phanbedder-1.9.7</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.detro.ghostdriver</groupId>
+            <artifactId>phantomjsdriver</artifactId>
+            <version>1.1.0</version>
+        </dependency>
+        <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.11</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest-core</artifactId>
+            <version>1.3</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.jayway.restassured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <version>2.4.0</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -59,7 +84,11 @@
             <version>1.2.0</version>
             <scope>test</scope>
         </dependency>
-
+        <dependency>
+            <groupId>org.glassfish.jersey.test-framework.providers</groupId>
+            <artifactId>jersey-test-framework-provider-jetty</artifactId>
+            <version>2.13</version>
+        </dependency>
         <dependency>
             <groupId>org.javalite</groupId>
             <artifactId>activejdbc</artifactId>
@@ -89,6 +118,17 @@
     </dependencies>
 
     <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+                <includes>
+                    <include>db/migration/*</include>
+                    <include>server.properties</include>
+                    <include>log4j.properties</include>
+                </includes>
+            </resource>
+        </resources>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -99,6 +139,49 @@
                     <source>${maven.compiler.source}</source>
                     <target>${maven.compiler.target}</target>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.18</version>
+                <configuration>
+                    <excludes>
+                        <exclude>**/integration/**/*.java</exclude>
+                        <exclude>**/integration/*.java</exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-failsafe-plugin</artifactId>
+                <version>2.18</version>
+                <configuration>
+                    <includes>
+                        <include>**/integration/**/*.java</include>
+                        <include>**/integration/*.java</include>
+                    </includes>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.apache.maven.surefire</groupId>
+                        <artifactId>surefire-junit47</artifactId>
+                        <version>2.18</version>
+                    </dependency>
+                </dependencies>
+                <executions>
+                    <execution>
+                        <id>integration-test</id>
+                        <goals>
+                            <goal>integration-test</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>verify</id>
+                        <goals>
+                            <goal>verify</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
             <plugin>
                 <groupId>org.javalite</groupId>
@@ -116,18 +199,39 @@
             <plugin>
                 <groupId>org.eclipse.jetty</groupId>
                 <artifactId>jetty-maven-plugin</artifactId>
-                <version>9.1.3.v20140225</version>
+                <version>9.2.2.v20140723</version>
+                <executions>
+                    <execution>
+                        <id>start-jetty</id>
+                        <phase>pre-integration-test</phase>
+                        <goals>
+                            <goal>start</goal>
+                        </goals>
+                        <configuration>
+                            <scanIntervalSeconds>0</scanIntervalSeconds>
+                            <daemon>true</daemon>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>stop-jetty</id>
+                        <phase>post-integration-test</phase>
+                        <goals>
+                            <goal>stop</goal>
+                        </goals>
+                    </execution>
+                </executions>
                 <configuration>
                     <httpConnector>
                         <port>${jetty.port}</port>
                         <host>${jetty.host}</host>
                     </httpConnector>
-                    <scanIntervalSeconds>3</scanIntervalSeconds>
+                    <scanIntervalSeconds>1</scanIntervalSeconds>
                     <webApp>
                         <contextPath>/</contextPath>
                     </webApp>
                     <stopPort>9990</stopPort>
                     <stopKey>tms-local</stopKey>
+                    <stopWait>5</stopWait>
                     <systemProperties>
                         <systemProperty>
                             <name>org.eclipse.jetty.annotations.maxWait</name>

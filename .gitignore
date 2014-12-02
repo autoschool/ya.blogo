@@ -8,3 +8,4 @@ release.properties
 .DS_Store
 *.db
 *.iml
+*.log

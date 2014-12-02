@@ -6,6 +6,13 @@ import org.javalite.activejdbc.Model;
  * Created by sukharev on 25.11.14.
  */
 public class User extends Model {
-//    private String name;
-//    private String email;
+
+    public class NoSuchUser extends Throwable {
+
+    }
+
+    public static User findUser(String login,String password){
+        return User.findFirst("(login = ? or email = ?) and password = ?",login,login,password);
+    }
+
 }

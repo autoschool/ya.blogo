@@ -1,46 +1,26 @@
 <#macro layout title="Ya.Blogo">
-<html>
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 <head>
-    <script src="/public/jquery/js/jquery.min.js" type="text/javascript"></script>
-    <link href="/public/bootstrap/css/bootstrap.min.css" type="text/css" rel="stylesheet"/>
-    <script src="/public/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-
-    <link href="/public/app/css/main.css" type="text/css" rel="stylesheet"/>
-
+    <#include "../partials/meta.ftl">
     <title>${title}</title>
+    <#include "../partials/styles.ftl">
+    <#include "../partials/scripts.ftl">
 </head>
 <body>
-<header>
-    <nav class="navbar navbar-menu navbar-fixed-top" role="navigation">
-        <div class="container">
-            <ul class="nav navbar-nav">
-                <li><a href="/post/all">Ya.Blogo</a></li>
-            </ul>
-            <form class="navbar-form navbar-left" method="GET" action="/post/new">
-                <button type="submit" class="btn btn-default">Create Post</button>
-            </form>
+<!--[if lt IE 7]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
 
-            <form class="navbar-form navbar-right" role="auth">
-                <button type="button" class="btn btn-default navbar-btn disabled">Sign Up</button>
-                <button type="button" class="btn btn-default navbar-btn disabled">Sign In</button>
-            </form>
-        </div>
-    </nav>
-</header>
-<br>
-<div class="content">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-3">
-                <#include "../partials/login_sidebar.ftl">
-            </div>
-            <div class="col-md-9">
-                <#nested />
-            </div>
-        </div>
-    </div>
+<!-- Add your site or application content here -->
+<div class="container">
+    <#nested >
 </div>
-<footer>
-</footer>
+
+
 </body>
+</html>
 </#macro>
