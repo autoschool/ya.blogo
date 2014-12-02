@@ -1,7 +1,6 @@
 <#import "./layouts/main.ftl" as layout>
 <@layout.layout>
-    <div class="container">
-        <h2>Hello world!</h2>
-        <p>${model}</p>
-    </div>
+    <d
+    <h2 id="content">Hello world!</h2>
+    <p>${model}</p>
 </@layout.layout>

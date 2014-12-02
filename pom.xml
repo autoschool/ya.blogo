@@ -51,6 +51,16 @@
              <version>${jersey.version}</version>
         </dependency>
         <dependency>
+            <groupId>net.anthavio</groupId>
+            <artifactId>phanbedder-1.9.7</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.detro.ghostdriver</groupId>
+            <artifactId>phantomjsdriver</artifactId>
+            <version>1.1.0</version>
+        </dependency>
+        <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.11</version>
@@ -151,6 +161,27 @@
                         <include>**/integration/*.java</include>
                     </includes>
                 </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.apache.maven.surefire</groupId>
+                        <artifactId>surefire-junit47</artifactId>
+                        <version>2.18</version>
+                    </dependency>
+                </dependencies>
+                <executions>
+                    <execution>
+                        <id>integration-test</id>
+                        <goals>
+                            <goal>integration-test</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>verify</id>
+                        <goals>
+                            <goal>verify</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
             <plugin>
                 <groupId>org.javalite</groupId>
@@ -200,6 +231,7 @@
                     </webApp>
                     <stopPort>9990</stopPort>
                     <stopKey>tms-local</stopKey>
+                    <stopWait>5</stopWait>
                     <systemProperties>
                         <systemProperty>
                             <name>org.eclipse.jetty.annotations.maxWait</name>
