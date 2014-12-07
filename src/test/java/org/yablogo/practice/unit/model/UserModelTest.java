@@ -1,15 +1,13 @@
 package org.yablogo.practice.unit.model;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
-import static org.hamcrest.CoreMatchers.is;
-
-import org.junit.BeforeClass;
 import org.junit.AfterClass;
+import org.junit.BeforeClass;
 import org.junit.Test;
-import org.junit.experimental.categories.Category;
 import org.yablogo.practice.model.User;
 import org.yablogo.practice.service.DatabaseProvider;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 
 
 /**
@@ -30,10 +28,10 @@ public class UserModelTest {
     }
 
     @BeforeClass
-    public static void setup(){
+    public static void setup() {
         user = new User();
-        user.setString("login",TESTLOGIN);
-        user.setString("password",TESTPASSWORD);
+        user.setString("login", TESTLOGIN);
+        user.setString("password", TESTPASSWORD);
         user.setString("email", TESTEMAIL);
         user.saveIt();
     }
@@ -44,8 +42,8 @@ public class UserModelTest {
     }
 
     @Test
-    public void shouldFindAUser(){
-        assertNotEquals("should not be a null",User.findFirst("login = ?", TESTLOGIN), null);
+    public void shouldFindAUser() {
+        assertNotEquals("should not be a null", User.findFirst("login = ?", TESTLOGIN), null);
     }
 
     @Test

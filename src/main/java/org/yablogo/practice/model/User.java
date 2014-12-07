@@ -11,8 +11,8 @@ public class User extends Model {
 
     }
 
-    public static User findUser(String login,String password){
-        return User.findFirst("(login = ? or email = ?) and password = ?",login,login,password);
+    public static User findUser(String login, String password) {
+        return User.findFirst("(login = ? or email = ?) and password = ?", login, login, password);
     }
 
 }

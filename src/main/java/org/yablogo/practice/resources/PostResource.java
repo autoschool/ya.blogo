@@ -11,8 +11,8 @@ import javax.ws.rs.core.MediaType;
 import java.util.List;
 
 /**
-* Created by litemn on 24.11.14.
-*/
+ * Created by litemn on 24.11.14.
+ */
 
 @Path("post")
 @Produces(MediaType.TEXT_HTML)

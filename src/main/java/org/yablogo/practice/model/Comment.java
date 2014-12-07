@@ -1,8 +1,8 @@
 package org.yablogo.practice.model;
 
-import java.sql.Timestamp;
-
 import org.javalite.activejdbc.Model;
+
+import java.sql.Timestamp;
 
 /**
  * Created by litemn on 18.11.14.

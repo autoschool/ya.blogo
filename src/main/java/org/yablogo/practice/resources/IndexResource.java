@@ -3,17 +3,11 @@ package org.yablogo.practice.resources;
 import org.glassfish.jersey.server.mvc.ErrorTemplate;
 import org.glassfish.jersey.server.mvc.Template;
 
-import org.yablogo.practice.model.Session;
-import org.yablogo.practice.model.User;
-import org.yablogo.practice.scope.IndexScope;
-import org.yablogo.practice.scope.Scope;
-
-import javax.servlet.http.HttpServletResponse;
-import javax.ws.rs.*;
-import javax.ws.rs.core.Context;
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import java.io.IOException;
-
 
 
 /**

@@ -12,17 +12,16 @@ import javax.ws.rs.core.Context;
  */
 public class Scope {
     public static final String SESSION_ID_PARAM_NAME = "sessionid";
-    public static final int SESSIONID_LIVETIME = 24*3600;
+    public static final int SESSIONID_LIVETIME = 24 * 3600;
 
-    protected User      user;
-    protected Session   session;
+    protected User user;
+    protected Session session;
 
-    public Scope(@Context HttpServletResponse response, @CookieParam(value = Scope.SESSION_ID_PARAM_NAME) String sid){
+    public Scope(@Context HttpServletResponse response, @CookieParam(value = Scope.SESSION_ID_PARAM_NAME) String sid) {
         this.session = Session.findFirst("hash = " + sid);
-        if (this.session != null){
+        if (this.session != null) {
             user = Session.getUserBySessionId(sid);
-        }
-        else {
+        } else {
             user = null;
             session = null;
         }
@@ -32,7 +31,7 @@ public class Scope {
         return user;
     }
 
-    public boolean isUserLoggedIn(){
+    public boolean isUserLoggedIn() {
         return (user != null);
     }
 }

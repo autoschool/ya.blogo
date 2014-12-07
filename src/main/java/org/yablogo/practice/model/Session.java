@@ -6,9 +6,10 @@ import org.javalite.activejdbc.Model;
  * Created by sukharev on 25.11.14.
  */
 public class Session extends Model {
-    public Session() {}
+    public Session() {
+    }
 
-    public int getUserId(){
+    public int getUserId() {
         return this.getInteger("user_id");
     }
 
@@ -18,7 +19,7 @@ public class Session extends Model {
     }
 
     public static User getUserBySessionId(String sessionId) {
-        Session s = Session.findFirst("hash = "+sessionId);
+        Session s = Session.findFirst("hash = " + sessionId);
         return User.findById(s.getUserId());
     }
 }

@@ -16,7 +16,7 @@ public class IndexScope extends Scope {
     List<Post> posts;
 
     public IndexScope(@Context HttpServletResponse response, @CookieParam(value = Scope.SESSION_ID_PARAM_NAME) String sid) {
-        super(response,sid);
+        super(response, sid);
         if (isUserLoggedIn()) {
             posts = Post.find("").limit(10).orderBy("created_ts desc");
         }

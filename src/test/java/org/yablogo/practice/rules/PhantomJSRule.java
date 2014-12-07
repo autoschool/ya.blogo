@@ -17,7 +17,7 @@ public class PhantomJSRule extends ExternalResource {
     public static PhantomJSDriver driver;
 
     @Override
-    public void before(){
+    public void before() {
         File phantomjs = Phanbedder.unpack();
         DesiredCapabilities dcaps = new DesiredCapabilities();
         dcaps.setCapability(PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY, phantomjs.getAbsolutePath());
@@ -25,7 +25,7 @@ public class PhantomJSRule extends ExternalResource {
     }
 
     @Override
-    public void after(){
+    public void after() {
         driver.close();
     }
 }
