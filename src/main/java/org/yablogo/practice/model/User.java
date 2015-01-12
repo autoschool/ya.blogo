@@ -7,12 +7,32 @@ import org.javalite.activejdbc.Model;
  */
 public class User extends Model {
 
-    public class NoSuchUser extends Throwable {
-
-    }
-
     public static User findUser(String login, String password) {
         return User.findFirst("(login = ? or email = ?) and password = ?", login, login, password);
+    }
+
+    public String getLogin() {
+        return getString("login");
+    }
+
+    public String getPassword() {
+        return getString("password");
+    }
+
+    public String getEmail() {
+        return getString("email");
+    }
+
+    public void setLogin(String login) {
+        setString("login", login);
+    }
+
+    public void setPassword(String password) {
+        setString("password", password);
+    }
+
+    public void setEmail(String email) {
+        setString("email", email);
     }
 
 }
