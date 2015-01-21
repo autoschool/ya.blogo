@@ -1,3 +1,4 @@
+<#-- @ftlvariable name="model" type="org.yablogo.practice.view.ViewData" -->
 <#macro layout title="Ya.Blogo">
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -32,7 +33,9 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li><a href="/post/all">All posts<span class="sr-only">(current)</span></a></li>
+                <#if model.authUser?? >
                 <li><a href="/post/new">Create post</a></li>
+                </#if>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">About<span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
@@ -42,13 +45,18 @@
                         <li><a href="#">Authors</a></li>
                         <li><a href="#">Technologies</a></li>
                         <li class="divider"></li>
-                        <li><a href="/reg/all">Users</a></li>
+                        <li><a href="#">Users</a></li>
                     </ul>
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="/reg/new">Registration</a></li>
-                <li><a href="#">Sign in</a></li>
+                <#if model.authUser?? >
+                    <li><a href="#">${model.authUser.login}</a></li>
+                    <li><a href="/auth/signout">Sign out</a></li>
+                <#else>
+                    <li><a href="/auth/register">Registration</a></li>
+                    <li><a href="/auth/signin">Sign in</a></li>
+                </#if>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
