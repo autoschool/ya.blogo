@@ -1,8 +1,9 @@
+<#-- @ftlvariable name="model" type="org.yablogo.practice.view.ViewData" -->
 <#import "/layouts/main.ftl" as layout />
 <@layout.layout title="Blog: posts">
 <div class="row">
     <div class="col-md-12">
-        <form class="form" role="form" action="/reg" method="post">
+        <form class="form" role="form" action="/auth/signin" method="post">
             <div class="page-header">
                 <div class="form-group">
                     <input type="text" class="form-control" id="login" name="login"
@@ -15,15 +16,9 @@
                            placeholder="Password">
                 </div>
             </div>
-            <div class="page-header">
-                <div class="form-group">
-                    <input type="email" class="form-control" id="email" name="email"
-                           placeholder="Email">
-                </div>
-            </div>
             <div class="row">
                 <div class="col-md-12">
-                    <button type="submit" class="btn btn-danger pull-right">Save</button>
+                    <button type="submit" class="btn btn-danger pull-right">Login</button>
                 </div>
             </div>
         </form>

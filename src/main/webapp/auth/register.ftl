@@ -3,15 +3,18 @@
 <@layout.layout title="Blog: posts">
 <div class="row">
     <div class="col-md-12">
-        <form class="form" role="form" action="/post/new" method="post">
+        <form class="form" role="form" action="/auth/register" method="post">
             <div class="page-header">
                 <div class="form-group">
-                    <input type="text" class="form-control" id="title" name="title"
-                           placeholder="Post Title">
+                    <input type="text" class="form-control" id="login" name="login"
+                           placeholder="Login">
                 </div>
             </div>
-            <div class="form-group">
-                <textarea class="form-control" rows="10" name="body"></textarea>
+            <div class="page-header">
+                <div class="form-group">
+                    <input type="password" class="form-control" id="password" name="password"
+                           placeholder="Password">
+                </div>
             </div>
             <div class="row">
                 <div class="col-md-12">

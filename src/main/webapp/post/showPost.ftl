@@ -1,13 +1,14 @@
+<#-- @ftlvariable name="model" type="org.yablogo.practice.view.ViewData" -->
 <#import "/layouts/main.ftl" as layout />
 <@layout.layout title="Blog: post">
 
 <div class="row">
     <div class="col-md-12">
         <div class="page-header">
-            <h2>${model.title}</h2>
+            <h2>${model.post.title}</h2>
         </div>
         <div class="post-body">
-        ${model.body}
+        ${model.post.body}
         </div>
     </div>
 </div>
@@ -19,7 +20,7 @@
     </div>
     <div class="panel-body">
         <ul class="list-group">
-            <#list model.comments as comment>
+            <#list model.post.comments as comment>
 
                 <li class="list-group-item">${comment.message}</li>
 
@@ -31,8 +32,8 @@
 
 </div>
 
-
-<form class="form" role="form" action="/post/${model.id}/comment" method="post">
+<#if model.authUser?? >
+<form class="form" role="form" action="/post/${model.post.id}/comment" method="post">
     <div class="form-group">
         <textarea class="form-control" rows="3" name="message"></textarea>
     </div>
@@ -42,6 +43,12 @@
         </div>
     </div>
 </form>
+<#else >
+    <div>
+        Only registered users are allowed to leave their comments.<br>
+        <a href="/auth/register">Register now</a>
+    </div>
+</#if>
 
 
 

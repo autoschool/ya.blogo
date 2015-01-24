@@ -40,4 +40,12 @@ public class Post extends Model {
     public List<Comment> getComments() {
         return getAll(Comment.class);
     }
+
+    public int getUserId() {
+        return getInteger("user_id");
+    }
+
+    public void setUserId(int userId) {
+        setInteger("user_id", userId);
+    }
 }

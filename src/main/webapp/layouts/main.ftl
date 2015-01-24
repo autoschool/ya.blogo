@@ -45,13 +45,13 @@
                         <li><a href="#">Authors</a></li>
                         <li><a href="#">Technologies</a></li>
                         <li class="divider"></li>
-                        <li><a href="#">Users</a></li>
                     </ul>
                 </li>
+                <li><a href="/user/all">All Blogers</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <#if model.authUser?? >
-                    <li><a href="#">${model.authUser.login}</a></li>
+                    <li><a href="/user/${model.authUser.id}">${model.authUser.login}</a></li>
                     <li><a href="/auth/signout">Sign out</a></li>
                 <#else>
                     <li><a href="/auth/register">Registration</a></li>

@@ -32,4 +32,16 @@ public class Comment extends Model {
     public Timestamp getCreatedAt() {
         return getTimestamp("created_at");
     }
+
+    public User getUser() {
+        return this.parent(User.class);
+    }
+
+    public int getUserId() {
+        return getInteger("user_id");
+    }
+
+    public void setUserId(int userId) {
+        setInteger("user_id", userId);
+    }
 }
