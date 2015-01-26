@@ -13,15 +13,20 @@ import java.io.IOException;
 import static java.lang.String.format;
 import static java.nio.file.Files.createTempDirectory;
 
+/**
+ * eroshenkoam
+ * 15/11/14
+ */
 @Provider
 public class DatabaseProvider implements ContainerRequestFilter {
     private static final String DBUSER = "sa";
-    private final static Logger logger = LoggerFactory.getLogger(DatabaseProvider.class);
+    private static final Logger logger = LoggerFactory.getLogger(DatabaseProvider.class);
     private static String dbUrl;
 
     static {
         try {
-            dbUrl = format("jdbc:h2:file:%s/%s,user=%s", getDbPath(), getDbName(), DBUSER);
+
+            dbUrl = format("jdbc:h2:mem:%s/%s,user=%s", getDbPath(), getDbName(), DBUSER);
             logger.info(format("Starting embedded database with url '%s' ...", dbUrl));
             openConnection();
             Flyway flyway = new Flyway();
